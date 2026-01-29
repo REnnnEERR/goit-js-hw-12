@@ -17,14 +17,14 @@ body {
     margin: 0 0 10px 0;
 }
 
-.search-form input {
+.form input {
     padding: 8px 12px;
     width: 250px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-.search-form button {
+.form button {
     padding: 8px 12px;
     margin-left: 5px;
     border: none;
@@ -34,7 +34,7 @@ body {
     cursor: pointer;
 }
 
-.search-form button:hover {
+.form button:hover {
     background-color: #00a2e8;
 }
 
