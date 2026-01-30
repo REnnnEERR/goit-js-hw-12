@@ -48,8 +48,11 @@ async function onSearch(evt) {
 
         if (page < totalPages) {
             showLoadMoreButton();
+        } else {
+            iziToast.info({
+                message: "We're sorry, but you've reached the end of search results.",
+            });
         }
-
     } catch (error) {
         iziToast.error({ message: 'Something went wrong 😢' });
     } finally {
@@ -59,6 +62,8 @@ async function onSearch(evt) {
 
 async function onLoadMore() {
     page += 1;
+
+    hideLoadMoreButton();
     showLoader();
 
     try {
@@ -66,8 +71,9 @@ async function onLoadMore() {
         createGallery(data.hits);
         smoothScroll();
 
-        if (page >= totalPages) {
-            hideLoadMoreButton();
+        if (page < totalPages) {
+            showLoadMoreButton();
+        } else {
             iziToast.info({
                 message: "We're sorry, but you've reached the end of search results.",
             });
